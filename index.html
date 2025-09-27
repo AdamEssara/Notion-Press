@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Quote Shorts</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Book Quote Shorts</h1>
+    </header>
+
+    <section id="player" class="player">
+      <button id="prev" class="nav">‹</button>
+
+      <div class="card" id="card" aria-live="polite">
+        <p id="quoteText" class="quote">Loading…</p>
+        <p id="meta" class="meta"><span id="author"></span> — <em id="title"></em></p>
+
+        <div class="controls">
+          <button id="likeBtn" class="like">❤ <span id="likeCount">0</span></button>
+          <button id="shareBtn" class="share">Share</button>
+        </div>
+      </div>
+
+      <button id="next" class="nav">›</button>
+    </section>
+
+    <section class="player-controls">
+      <button id="playPause">Pause</button>
+      <label>
+        Auto-play interval:
+        <select id="interval">
+          <option value="3000">3s</option>
+          <option value="5000" selected>5s</option>
+          <option value="8000">8s</option>
+        </select>
+      </label>
+    </section>
+
+    <footer>
+      <small>Built with Vanilla JS • Demo</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
