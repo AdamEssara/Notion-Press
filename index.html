@@ -7,10 +7,40 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="app">
-    <header>
-      <h1>Book Quote Shorts</h1>
-    </header>
+  <!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-left">
+    <div class="logo">📚 <strong>Quote Shorts</strong></div>
+  </div>
+
+  <!-- Desktop Links -->
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="https://github.com/AdamEssara" target="_blank" rel="noopener">GitHub</a></li>
+  </ul>
+
+  <!-- Theme Toggle + Mobile Menu -->
+  <div class="nav-right">
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    <button id="menuToggle" class="menu-toggle" aria-label="Open menu">☰</button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="https://github.com/your-username/book-quote-shorts" target="_blank" rel="noopener">GitHub</a>
+</div>
+
+  <!-- Main app wrapper (centered container) -->
+  <main class="container">
+    <header class="hero">
+  <h1>Book Quote Shorts</h1>
+  <p class="subtitle">Discover wisdom in short, snappy quotes from timeless books 📖</p>
+</header>
+
 
     <section id="player" class="player">
       <button id="prev" class="nav">‹</button>
@@ -30,18 +60,20 @@
 
     <section class="player-controls">
       <button id="playPause">Pause</button>
-      <label>
-        Auto-play interval:
-        <select id="interval">
-          <option value="3000">3s</option>
-          <option value="5000" selected>5s</option>
-          <option value="8000">8s</option>
-        </select>
-      </label>
+  <label>
+    Auto-play interval:
+    <span class="select-wrapper">
+      <select id="interval">
+        <option value="3000">3s</option>
+        <option value="5000" selected>5s</option>
+        <option value="8000">8s</option>
+      </select>
+    </span>
+  </label>
     </section>
 
     <footer>
-      <small>Built with Vanilla JS • Demo</small>
+      
     </footer>
   </main>
 

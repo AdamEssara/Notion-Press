@@ -1,21 +1,27 @@
-// In-memory quotes (replace with fetch('/quotes.json') if using file)
-// THEME TOGGLE - persists in localStorage
 
-// MOBILE MENU TOGGLE
+// MOBILE MENU TOGGLE 
 (function(){
   const menuBtn = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   if(!menuBtn || !mobileMenu) return;
 
   menuBtn.addEventListener('click', ()=>{
-    mobileMenu.style.display = (mobileMenu.style.display === 'flex') ? 'none' : 'flex';
+    mobileMenu.classList.toggle('open');
   });
 
   // Close menu when link is clicked
   mobileMenu.querySelectorAll('a').forEach(link=>{
-    link.addEventListener('click', ()=> mobileMenu.style.display = 'none');
+    link.addEventListener('click', ()=> mobileMenu.classList.remove('open'));
+  });
+
+  document.addEventListener('click', (e)=>{
+    if(!mobileMenu.classList.contains('open')) return;
+  
+    if (mobileMenu.contains(e.target) || menuBtn.contains(e.target)) return;
+    mobileMenu.classList.remove('open');
   });
 })();
+
 
 (function(){
   const btn = document.getElementById('themeToggle');
@@ -39,7 +45,16 @@ const quotes = [
   { id:1, text:"Freeing yourself was one thing, claiming ownership of that freed self was another.", author:"Toni Morrison", title:"Beloved" },
   { id:2, text:"The strongest of all warriors are these two — Time and Patience.", author:"Leo Tolstoy", title:"War and Peace " },
   { id:3, text:"The heaviest penalty for declining to rule is to be ruled by someone inferior to yourself.", author:"Plato", title:"Republic " },
-  // add more — 10–20 is good for demo
+  { id:4, text:"Not all those who wander are lost.", author:"J.R.R. Tolkien", title:"The Fellowship of the Ring" },
+{ id:5, text:"It is not in the stars to hold our destiny but in ourselves.", author:"William Shakespeare", title:"Julius Caesar" },
+{ id:6, text:"Man is condemned to be free; because once thrown into the world, he is responsible for everything he does.", author:"Jean-Paul Sartre", title:"Being and Nothingness" },
+{ id:7, text:"Happiness depends upon ourselves.", author:"Aristotle", title:"Nicomachean Ethics" },
+{ id:8, text:"You never really understand a person until you consider things from his point of view.", author:"Harper Lee", title:"To Kill a Mockingbird" },
+{ id:9, text:"All animals are equal, but some animals are more equal than others.", author:"George Orwell", title:"Animal Farm" },
+{ id:10, text:"There is no greater agony than bearing an untold story inside you.", author:"Maya Angelou", title:"I Know Why the Caged Bird Sings" },
+{ id:11, text:"It matters not what someone is born, but what they grow to be.", author:"J.K. Rowling", title:"Harry Potter and the Goblet of Fire" },
+{ id:12, text:"The unexamined life is not worth living.", author:"Socrates", title:"Apology" },
+{ id:13, text:"Hell is other people.", author:"Jean-Paul Sartre", title:"No Exit" }
 ];
 
 let idx = 0;
@@ -125,7 +140,7 @@ likeBtn.addEventListener('click', ()=>{
   current++;
   setLikes(q.id, current);
   likeCount.textContent = current;
-  // small feedback
+
   likeBtn.animate([{ transform:'scale(1)' },{ transform:'scale(1.14)' },{ transform:'scale(1)' }],{ duration:220 });
 });
 
